@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-deployment
+  labels:
+    app: app-gym
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-gym
+  template:
+    metadata:
+      labels:
+        app: app-gym
+    spec:
+      containers:
+      - name: gym
+        image: uzzama/gym-website:v1
+        ports:
+        - containerPort: 80
+
